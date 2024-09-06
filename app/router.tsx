@@ -11,17 +11,18 @@ import { NotFound } from './components/NotFound'
 
 export function createRouter() {
   const queryClient = new QueryClient()
+  const router = createTanStackRouter({
+    routeTree,
+    context: { queryClient },
+    defaultPreload: 'intent',
+    defaultErrorComponent: DefaultCatchBoundary,
+    defaultNotFoundComponent: () => <NotFound />,
+  })
 
-  return routerWithQueryClient(
-    createTanStackRouter({
-      routeTree,
-      context: { queryClient },
-      defaultPreload: 'intent',
-      defaultErrorComponent: DefaultCatchBoundary,
-      defaultNotFoundComponent: () => <NotFound />,
-    }),
-    queryClient,
-  )
+  // Why is this empty? Idk if its related...
+  type MyContext = typeof router.options.context
+
+  return routerWithQueryClient(router, queryClient)
 }
 
 declare module '@tanstack/react-router' {
