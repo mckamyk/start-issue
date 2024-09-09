@@ -4,11 +4,7 @@ export default $config({
   console: {
     autodeploy: {
       target: (e) => {
-        if (
-          e.action === 'pushed' &&
-          e.type === 'branch' &&
-          e.branch === 'main'
-        ) {
+        if (e.action === 'pushed' && e.type === 'branch') {
           return {
             stage: e.branch === 'main' ? 'prod' : e.branch,
           }
