@@ -17,6 +17,7 @@ export default $config({
               content: `Updating start on the \`${stage}\` stage.\n${e.commit.message}`,
             }),
           })
+
           return {
             stage,
           }
