@@ -4,11 +4,11 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start",
-    "lint": "prettier --check '**/*' --ignore-unknown && eslint --ext .ts,.tsx ./app",
+    "dev": "vinxi dev",
     "format": "prettier --write '**/*' --ignore-unknown",
+    "lint": "prettier --check '**/*' --ignore-unknown && eslint --ext .ts,.tsx ./app",
+    "start": "vinxi start",
     "test:e2e": "playwright test --project=chromium"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "redaxios": "^0.5.1",
+    "sst": "3.0.124",
     "tailwind-merge": "^2.5.2",
     "vinxi": "0.4.2"
   },
@@ -40,5 +41,8 @@
     "typescript": "^5.5.4",
     "vite": "^5.3.5",
     "vite-tsconfig-paths": "^5.0.1"
+  },
+  "overrides": {
+    "nitropack": "npm:nitropack-nightly@latest"
   }
 }
