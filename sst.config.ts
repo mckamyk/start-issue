@@ -7,7 +7,7 @@ export default $config({
         if (
           e.action === 'pushed' &&
           e.type === 'pull_request' &&
-          e.base === 'staging'
+          e.base === 'main'
         ) {
           return {
             stage: `pr-${e.number}`,
