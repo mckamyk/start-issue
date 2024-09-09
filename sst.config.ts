@@ -9,7 +9,7 @@ const postMessage = async (
     'https://discord.com/api/webhooks/1282742099787251866/7VYfPWVON2tDT-rYAXcpdm445fjPoiF3bRzJIRhojgYEYN5VuPb7TP9X4ljRWp_E1ta2'
 
   const content: string[] = [
-    `## Updating **Start** on the ${stage} stage.`,
+    `## Updating **Start** on ${stage}.`,
     `Commit Message: ${commitMessage}`,
     `Links:`,
     `- [SST Console](https://console.sst.dev/foobarbinbaz/start/${stage}/resources)`,
