@@ -6,21 +6,11 @@ export default $config({
       target: (e) => {
         if (
           e.action === 'pushed' &&
-          e.type === 'pull_request' &&
-          e.base === 'main'
-        ) {
-          return {
-            stage: `pr-${e.number}`,
-          }
-        }
-
-        if (
-          e.action === 'pushed' &&
           e.type === 'branch' &&
           e.branch === 'main'
         ) {
           return {
-            stage: 'prod',
+            stage: e.branch === 'main' ? 'prod' : e.branch,
           }
         }
       },
@@ -34,6 +24,8 @@ export default $config({
     }
   },
   async run() {
+    const secret = new sst.Secret('TestSecret')
+
     new sst.aws.TanstackStart('MyWeb')
   },
 })
