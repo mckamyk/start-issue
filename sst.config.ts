@@ -6,6 +6,16 @@ export default $config({
       target: (e) => {
         if (
           e.action === 'pushed' &&
+          e.type === 'pull_request' &&
+          e.base === 'staging'
+        ) {
+          return {
+            stage: `pr-${e.number}`,
+          }
+        }
+
+        if (
+          e.action === 'pushed' &&
           e.type === 'branch' &&
           e.branch === 'main'
         ) {
