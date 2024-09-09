@@ -10,7 +10,7 @@ export default $config({
           e.branch === 'main'
         ) {
           return {
-            stage: 'main',
+            stage: 'prod',
           }
         }
       },
