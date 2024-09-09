@@ -18,7 +18,7 @@ export default $config({
   },
   app(input) {
     return {
-      name: 'start-issue',
+      name: 'start',
       removal: input?.stage === 'production' ? 'retain' : 'remove',
       home: 'aws',
     }
